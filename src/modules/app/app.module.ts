@@ -4,7 +4,7 @@ import { AppService } from './service/app.service';
 import { UserModule } from '../user/user.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import configurations from '../configurations'
+import configurations from 'src/configurations'
 
 @Module({
   imports: [ConfigModule.forRoot({
