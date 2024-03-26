@@ -29,6 +29,6 @@ export class AuthController {
     @UseGuards(JwtAuthGuard)
     @Post('test')
     test() {
-        
+        return true
     }
 }

@@ -26,6 +26,7 @@ export class AuthService {
         
         const validatePassword = await bcrypt.compare(dto.password, existUser.password)
         if (!validatePassword) throw new BadRequestException(AppError.WRONG_PASSWORD)
+        
         const userdata = {
             firstName: existUser.firstName,
             username: existUser.username,
