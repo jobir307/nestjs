@@ -27,12 +27,8 @@ export class AuthService {
         const validatePassword = await bcrypt.compare(dto.password, existUser.password)
         if (!validatePassword) throw new BadRequestException(AppError.WRONG_PASSWORD)
         
-        const userdata = {
-            firstName: existUser.firstName,
-            username: existUser.username,
-            email: existUser.email
-        }
-        const token = await this.tokenService.generateJwtToken(userdata)
-        return {...existUser, token}
+        const token = await this.tokenService.generateJwtToken(dto.email)
+        const user = await this.userService.publicUser(dto.email)
+        return {...user, token}
     } 
 }
